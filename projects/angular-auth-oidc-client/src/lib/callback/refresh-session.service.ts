@@ -40,7 +40,7 @@ export class RefreshSessionService {
 
   forceRefreshSession(configId: string, extraCustomParams?: { [key: string]: string | number | boolean }): Observable<LoginResponse> {
     const { customParamsRefreshTokenRequest } = this.configurationProvider.getOpenIDConfiguration();
-
+    this.loggerService.logWarning(null, 'THIS is a TEST.');
     const mergedParams = { ...customParamsRefreshTokenRequest, ...extraCustomParams };
 
     if (this.flowHelper.isCurrentFlowCodeFlowWithRefreshTokens(configId)) {
